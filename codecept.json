@@ -1,0 +1,28 @@
+{
+  "output": "./output",
+  "helpers": {
+    "Puppeteer": {
+      "url": "http://localhost",
+      "show": true
+    },
+    "GetData": {
+      "require": "./getdata_helper.js"
+    }
+  },
+  "include": {
+    "I": "./steps_file.js"
+  },
+  "mocha": {},
+  "bootstrap": false,
+  "teardown": null,
+  "hooks": [],
+  "gherkin": {},
+  "plugins": {
+    "screenshotOnFail": {
+      "enabled": true
+    }
+  },
+  "tests": "./*_test.js",
+  "timeout": 10000,
+  "name": "codecept-examples"
+}

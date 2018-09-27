@@ -1,0 +1,27 @@
+{
+  "name": "codecept-examples",
+  "version": "1.0.0",
+  "description": "Exemples d'utilisation de Codeceptjs et Puppeteer",
+  "main": "alternativesToPuppeteer_test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/codeceptjs run",
+    "init-codeceptjs": "./node_modules/.bin/codeceptjs run --steps",
+    "create-scenario": "./node_modules/.bin/codeceptjs gt",
+    "create-helper": "./node_modules/.bin/codeceptjs gh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demiton/codecept-examples.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/demiton/codecept-examples/issues"
+  },
+  "homepage": "https://github.com/demiton/codecept-examples#readme",
+  "devDependencies": {
+    "codeceptjs": "^1.4.2",
+    "puppeteer": "^1.8.0"
+  }
+}
