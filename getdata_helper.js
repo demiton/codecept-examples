@@ -23,14 +23,35 @@ class GetData extends Helper {
 
 async getLinks(){
   const page = this.helpers['Puppeteer'].page;
-  const stories = await page.evaluate(() => {
-  const links = Array.from(document.querySelectorAll('div.title > a'))
-    return links.map(link => link.href).slice(0, 10);
-  })
-
-
-  return console.log(stories);
+  let content = await page.evaluate(() => {
+  let divs = [...document.querySelectorAll('.g')];
+  return divs.map((div) => div.textContent.trim());
+});
+return content;
 }
+
+async getResults(){
+  const page = this.helpers['Puppeteer'].page;
+  const result = await page.evaluate(() => {
+  let title = document.querySelectorAll(".r");
+  let content = document.querySelector(".g");
+
+  return { title, content }
+})
+console.log(typeof result);
+return new Promise(function(res,rej) {
+    res(result);});
+}
+
+async getElements(){
+  const page = this.helpers['Puppeteer'].page;
+  let content = await page.evaluate(() => {
+  let divs = [...document.querySelectorAll('div')];
+  return divs.map((div) => div.textContent.trim());
+});
+return content;
+}
+
 }
 
 module.exports = GetData;
