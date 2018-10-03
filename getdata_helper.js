@@ -24,8 +24,8 @@ class GetData extends Helper {
 async getLinks(){
   const page = this.helpers['Puppeteer'].page;
   let content = await page.evaluate(() => {
-  let divs = [...document.querySelectorAll('.g')];
-  return divs.map((div) => div.textContent.trim());
+  let divs = [...document.querySelectorAll('div.g > div > div > h3 > a')];
+  return divs.map((div) => div.href.trim());
 });
 return content;
 }
@@ -52,6 +52,15 @@ async getElements(){
 return content;
 }
 
+async printRes(results){
+  for(var i in results){
+    console.log('i : '+i+' , result : '+results[i]);
+  }
 }
 
+async clickOnRes(url,selector){
+   I.click("//*[contains(text(), "+url+")]", selector);
+}
+
+}
 module.exports = GetData;
